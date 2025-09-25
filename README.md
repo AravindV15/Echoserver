@@ -21,6 +21,24 @@ Testing the server and client
 
 ## PROGRAM:
 ```
+# echo-client.py
+
+
+import socket
+
+
+HOST = "127.0.0.1"  # The server's hostname or IP address
+PORT = 65432  # The port used by the server
+
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b"Hello, world")
+    data = s.recv(1024)
+
+
+print(f"Received {data!r}")
+
 # echo-server.py
 
 
@@ -42,33 +60,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if not data:
                 break
             conn.sendall(data)
-
-# echo-client.py
-
-
-import socket
-
-
-HOST = "127.0.0.1"  # The server's hostname or IP address
-PORT = 65432  # The port used by the server
-
-
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.connect((HOST, PORT))
-    s.sendall(b"Hello, world")
-    data = s.recv(1024)
-
-
-print(f"Received {data!r}")
-
 ```
-
 ## OUTPUT:
-![WhatsApp Image 2025-09-12 at 13 30 27_83b6b6c7](https://github.com/user-attachments/assets/751ee45c-3889-4e5a-a30d-d8d48a9a02ed)
-
-
-![WhatsApp Image 2025-09-12 at 13 37 59_5d81b292](https://github.com/user-attachments/assets/df47eaab-ecec-47c3-8dc2-83cf2ad97b2e)
-
+<img width="1280" height="718" alt="image" src="https://github.com/user-attachments/assets/c29c2a00-5601-4826-a1b7-0997fab093d8" />
 
 
 ## RESULT:
